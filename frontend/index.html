@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoomSignal - WiFi Analyzer</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>RoomSignal</h1>
+            <p class="subtitle">WiFi Network Analyzer</p>
+        </header>
+
+        <div class="controls">
+            <button id="refreshBtn" onclick="scanNetworks()">
+                <span class="btn-icon">&#8635;</span> Scan Networks
+            </button>
+            <span id="lastUpdate" class="last-update"></span>
+        </div>
+
+        <!-- Summary Card -->
+        <div id="summaryCard" class="card summary-card hidden">
+            <div class="summary-content">
+                <div id="summaryIcon" class="summary-icon"></div>
+                <div class="summary-text">
+                    <h3 id="summaryMessage"></h3>
+                    <p id="summaryRecommendation"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Current Connection -->
+        <section id="currentSection" class="section hidden">
+            <h2>Current Connection</h2>
+            <div id="currentConnection" class="card current-card">
+                <!-- Populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Available Networks -->
+        <section id="networksSection" class="section hidden">
+            <h2>Available Networks <span id="networkCount" class="badge"></span></h2>
+            <div id="networksList" class="networks-grid">
+                <!-- Populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Loading State -->
+        <div id="loadingState" class="loading-state">
+            <div class="spinner"></div>
+            <p>Scanning WiFi networks...</p>
+        </div>
+
+        <!-- Error State -->
+        <div id="errorState" class="error-state hidden">
+            <p id="errorMessage"></p>
+            <button onclick="scanNetworks()">Try Again</button>
+        </div>
+
+        <!-- Initial State -->
+        <div id="initialState" class="initial-state">
+            <div class="initial-icon">&#128225;</div>
+            <h2>Welcome to RoomSignal</h2>
+            <p>Click "Scan Networks" to analyze WiFi networks at your current location</p>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
